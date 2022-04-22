@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from Barraps.views import mozo2
+from django.urls import path, include
+#from Barraps.views import mozo2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mozo2/', mozo2)
+    path('Barraps/', include('Barraps.urls')),
+    
 ]
