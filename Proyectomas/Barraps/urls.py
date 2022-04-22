@@ -1,6 +1,6 @@
 from django.urls import path
 from Barraps import views
-from .views import inicio, mozo2, mozo, vista_mozo
+from .views import inicio, mozo2, vista_mozo
 
 
 urlpatterns = [

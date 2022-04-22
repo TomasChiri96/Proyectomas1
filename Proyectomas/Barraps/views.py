@@ -3,6 +3,7 @@ from django.shortcuts import render
 from Barraps.models import mozo
 
 
+
 # Create your views here.
 def mozo2(request):
     mozo2 = mozo(nombre = "Alfio", apellido = "Junior", numero = 2)
