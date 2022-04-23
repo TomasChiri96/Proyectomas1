@@ -1,12 +1,12 @@
 from django.urls import path
 from Barraps import views
-from .views import inicio, mozo2, vista_mozo
+from .views import inicio, vista_mozo, vista_mezas, vista_almacen
 
 
 urlpatterns = [
-    path('mozo2/', mozo2),
-    path('', views.inicio),
-    path('vistamozos/', vista_mozo),
-    path('vistamesas/', views.vista_mezas),
-    path('vistaalmacen/', views.vista_almacen)
+    
+    path('', inicio, name="Inicio"),
+    path('vistamozos/', vista_mozo, name="Mozos"),
+    path('vistamesas/', vista_mezas, name="Meza"),
+    path('vistaalmacen/', vista_almacen)
 ]
