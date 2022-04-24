@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Mozos</title>
+</head>
+<body>
+    <form action ="/Barraps/formularioMozo/"method="POST">{% csrf_token %}
+        <p>Nombre Mozo: <input type="text" name="Nombre"></p>
+        <p>Apellido Mozo: <input type="text" name="Apellido"></p>
+        <p>Numero: <input type="number" name="Numero"></p>
+
+        <input type="submit" value="Cargar">
+
+
+
+
+    </form>    
+
+
+
+</body>
+</html>

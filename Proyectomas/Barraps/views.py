@@ -35,3 +35,12 @@ def vista_mezas(request):
 def vista_almacen(request):
 
     return render(request, 'AppBarraps/vistaalmacen.html')
+
+def formularioMozo(request):
+
+    if request == 'POST':
+        agregoMozo = mozo(request.POST['Nombre'], request.POST['Apellido'], request.POST['Numero'])
+        agregoMozo.save()
+        return render(request,'AppBarraps/mozo_nuevo.html')
+
+    return render(request, 'AppBarraps/inicio.html')
