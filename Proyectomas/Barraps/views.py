@@ -12,8 +12,16 @@ def mozo2(request):
 
     return HttpResponse(texto1)
 
-def inicio(request):
+def mozo_nuevo(request, nombre, apellido, numero):
+    mozo_nuevo = mozo(nombre=nombre, apellido=apellido, numero=numero)
+    mozo_nuevo.save()
+       
 
+    return render(request, 'AppBarraps/mozo_nuevo.html', {'nombre':nombre, "apellido":apellido, "numero":numero}) 
+
+
+def inicio(request):
+    
     return render(request, 'AppBarraps/inicio.html')
 
 def vista_mozo(request):
