@@ -38,9 +38,13 @@ def vista_almacen(request):
 
 def formularioMozo(request):
 
-    if request == 'POST':
-        agregoMozo = mozo(request.POST['Nombre'], request.POST['Apellido'], request.POST['Numero'])
+    if request.method == 'POST':
+        Nombre= request.POST["nombre"]
+        Apellido= request.POST["apellido"]
+        Numero= request.POST["numero"]
+        
+        agregoMozo = mozo(nombre=Nombre, apellido=Apellido, numero=Numero)
         agregoMozo.save()
-        return render(request,'AppBarraps/mozo_nuevo.html')
+        return render(request,'AppBarraps/mozo_nuevo.html', {"nombre":Nombre, "apellido":Apellido, "numero":Numero})
 
-    return render(request, 'AppBarraps/inicio.html')
+    return render(request, 'AppBarraps/formularioMozo.html')

@@ -10,5 +10,5 @@ urlpatterns = [
     path('vistamesas/', vista_mezas, name="Meza"),
     path('vistaalmacen/', vista_almacen),
     path('nuevo-mozo/<nombre>/<apellido>/<numero>', mozo_nuevo),
-    path('formularioMozo/',formularioMozo, name="formularioMozo")
+    path('formularioMozo/',formularioMozo, name="AgregarMozo")
 ]
