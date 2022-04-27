@@ -9,14 +9,21 @@
 <body>
     <form action ="/Barraps/formularioMozo/"method="POST">{% csrf_token %}
 
-        <p>Nombre Mozo: <input type="text" name="nombre"></p>
+        <!-----<p>Nombre Mozo: <input type="text" name="nombre"></p>
 
         <p>Apellido Mozo: <input type="text" name="apellido"></p>
 
         <p>Numero: <input type="number" name="numero"></p>
 
-        <input type="submit" value="Cargar">
+        <input type="submit" value="Cargar">---->
 
+        <table>
+
+        {{ miFormulario.as_p }}
+
+        </table>
+
+        <input type="submit", value="Cargar">
 
 
 

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from Barraps.models import mozo
+from Barraps.forms import FormularioMozo
 
 
 
@@ -39,12 +40,30 @@ def vista_almacen(request):
 def formularioMozo(request):
 
     if request.method == 'POST':
-        Nombre= request.POST["nombre"]
-        Apellido= request.POST["apellido"]
-        Numero= request.POST["numero"]
-        
-        agregoMozo = mozo(nombre=Nombre, apellido=Apellido, numero=Numero)
-        agregoMozo.save()
-        return render(request,'AppBarraps/mozo_nuevo.html', {"nombre":Nombre, "apellido":Apellido, "numero":Numero})
+        Miformulario = FormularioMozo(request.POST)
 
-    return render(request, 'AppBarraps/formularioMozo.html')
+        if Miformulario.is_valid():
+
+            informacion = Miformulario.cleaned_data
+            
+            guardarMozo = mozo(nombre=informacion['nombre'], apellido=informacion['apellido'], numero=informacion['numero'])
+            
+            guardarMozo.save()
+            
+            return render(request, "AppBarraps/mozo_nuevo.html")
+    
+    else:
+        mi_formulario = FormularioMozo()
+    return render(request, 'AppBarraps/formularioMozo.html', {"miFormulario":mi_formulario})
+
+def BusquedaMozo(request):
+
+    return render(request, 'AppBarraps/busquedaMozo.html')
+
+def busqueda(request):
+
+    respuesta= f"Estoy buscando al mozo: {request.GET['nombre']}"
+    return HttpResponse(respuesta)
+    
+
+    
