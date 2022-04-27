@@ -58,12 +58,27 @@ def formularioMozo(request):
 
 def BusquedaMozo(request):
 
+    
     return render(request, 'AppBarraps/busquedaMozo.html')
+
 
 def busqueda(request):
 
-    respuesta= f"Estoy buscando al mozo: {request.GET['nombre']}"
-    return HttpResponse(respuesta)
+    if request.GET['apellido']:
+        
+        apellidos = request.GET['apellido']
+        
+        nombres = mozo.objects.filter(apellido__icontains=apellidos)
+
+        return render (request, 'AppBarraps/busqueda.html', {"apellido":apellidos, "nombre":nombres})
+
+    else:
+        respuesta = "No enviaste datos"
+        
+
     
+    return HttpResponse(respuesta)
+
+
 
     
