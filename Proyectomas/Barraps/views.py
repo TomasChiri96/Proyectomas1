@@ -66,11 +66,11 @@ def busqueda(request):
 
     if request.GET['apellido']:
         
-        apellidos = request.GET['apellido']
+        apellido = request.GET['apellido']
         
-        nombres = mozo.objects.filter(apellido__icontains=apellidos)
+        nombre = mozo.objects.filter(apellido=apellido)
 
-        return render (request, 'AppBarraps/busqueda.html', {"apellido":apellidos, "nombre":nombres})
+        return render (request, 'AppBarraps/busqueda.html', {"apellido":apellido, "nombre":nombre})
 
     else:
         respuesta = "No enviaste datos"
