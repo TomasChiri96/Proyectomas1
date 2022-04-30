@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Mozos</title>
-</head>
-<body>
-    <form action ="/Barraps/formularioMozo/"method="POST">{% csrf_token %}
+{% extends "AppBarraps/padre.html" %}
 
-        <!-----<p>Nombre Mozo: <input type="text" name="nombre"></p>
+{% load static %}
 
-        <p>Apellido Mozo: <input type="text" name="apellido"></p>
+{% block contenidoQuecambia %}  
 
-        <p>Numero: <input type="number" name="numero"></p>
 
-        <input type="submit" value="Cargar">---->
+       <form action ="/Barraps/formularioMozo/"method="POST">{% csrf_token %}
+                
+            <table>
 
-        <table>
+            {{ miFormulario.as_p }}
 
-        {{ miFormulario.as_p }}
-
-        </table>
+            </table>
 
         <input type="submit", value="Cargar">
 
@@ -30,6 +20,5 @@
     </form>    
 
 
+    {% endblock %}
 
-</body>
-</html>

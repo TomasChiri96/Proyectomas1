@@ -80,5 +80,10 @@ def busqueda(request):
     return HttpResponse(respuesta)
 
 
+def leerMozos(request):
+    mozos = mozo.objects.all()
+    contexto = {"Mozo":mozos}
+    return render (request, 'AppBarraps/leerMozos.html', contexto)
 
+    
     
